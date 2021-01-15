@@ -1,0 +1,26 @@
+@import fonts
+@import libs
+@import vars
+
+*, *::before, *::after
+  margin: 0
+  padding: 0
+  box-sizing: border-box
+
+a, button, form, textarea, input
+  &:active, &:focus
+    box-shadow: none
+    outline: none  
+
+body
+  font-family: ProximaNova-Regular, sans-serif
+  background: #e0edf5
+
+.container
+  max-width: 1600px
+  width: 100%
+  margin: 0 auto
+
+@import components/header
+@import components/addTask
+@import components/cards
