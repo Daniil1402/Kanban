@@ -34,13 +34,7 @@ gulp.task("styles", function () {
 
 gulp.task("scripts", function () {
   return gulp
-    .src([
-      "node_modules/jquery/dist/jquery.min.js",
-      "node_modules/owl.carousel/dist/owl.carousel.min.js",
-      // "node_modules/lightbox2/dist/js/lightbox.min.js",
-      "app/assets/js/main/**/*.js",
-    ])
-    .pipe(concat("scripts.js"))
+    .src(["app/assets/js/main/**/*.js"])
     .pipe(gulp.dest("app/assets/js"))
     .pipe(
       browserSync.reload({

@@ -6,12 +6,11 @@ html(lang="ru")
         title Document
         link(rel="stylesheet", href="assets/css/styles.css")
     body
+        include components/main/header
+        .container
+            include components/addTask
+            include components/cards
+            
+        //include components/main/footer
 
-    include components/main/header
-    .container
-        include components/addTask
-        include components/cards
-        
-    //include components/main/footer
-
-    script(src="assets/js/scripts.js")
+    script(src="assets/js/main.js")

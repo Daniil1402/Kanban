@@ -4202,30 +4202,38 @@ body {
   margin-bottom: 50px; }
   .addTask h2 {
     margin-bottom: 15px; }
-  .addTask input {
-    height: 40px;
-    border: 1px solid #dddddd;
-    border-radius: 10px;
-    padding-left: 10px;
-    max-width: 220px;
-    width: 100%;
-    margin-right: 10px;
-    transition: .3s; }
-    .addTask input:hover, .addTask input:focus {
-      box-shadow: 0px 0px 8px 3px rgba(206, 206, 206, 0.3);
+  .addTask .addTask__block {
+    display: flex; }
+    .addTask .addTask__block input {
+      height: 40px;
+      border: 1px solid #dddddd;
+      border-radius: 10px;
+      padding-left: 10px;
+      max-width: 220px;
+      width: 100%;
+      margin-right: 10px;
       transition: .3s; }
-  .addTask button {
-    height: 40px;
-    border: 1px solid #dddddd;
-    border-radius: 10px;
-    padding: 0 15px;
-    cursor: pointer;
-    background: #449fd4;
-    color: #ffffff;
-    transition: .3s; }
-    .addTask button:hover {
-      box-shadow: 0px 0px 8px 3px rgba(157, 162, 207, 0.418);
-      transition: .3s; }
+      .addTask .addTask__block input:hover, .addTask .addTask__block input:focus {
+        box-shadow: 0px 0px 8px 3px rgba(206, 206, 206, 0.3);
+        transition: .3s; }
+    .addTask .addTask__block button {
+      height: 40px;
+      border: 1px solid #dddddd;
+      border-radius: 10px;
+      padding: 0 15px;
+      cursor: pointer;
+      background: #449fd4;
+      color: #ffffff;
+      transition: .3s;
+      display: flex;
+      align-items: center; }
+      .addTask .addTask__block button:hover {
+        box-shadow: 0px 0px 8px 3px rgba(157, 162, 207, 0.418);
+        transition: .3s; }
+      .addTask .addTask__block button span {
+        margin-left: 10px;
+        font-family: ProximaNova-Regular, sans-serif;
+        font-size: 16px; }
 
 .cards__title {
   padding: 10px 20px;
@@ -4256,7 +4264,8 @@ body {
       width: 100%;
       padding: 10px 20px;
       border-radius: 7px;
-      border-left: 7px solid #a7a7a7; }
+      border-left: 7px solid #a7a7a7;
+      margin-bottom: 20px; }
   .cards .inProgress {
     max-width: 300px;
     width: 100%; }
@@ -4267,7 +4276,8 @@ body {
       width: 100%;
       padding: 10px 20px;
       border-radius: 7px;
-      border-left: 7px solid #86B6DA; }
+      border-left: 7px solid #86B6DA;
+      margin-bottom: 20px; }
   .cards .done {
     max-width: 300px;
     width: 100%; }
@@ -4278,7 +4288,8 @@ body {
       width: 100%;
       padding: 10px 20px;
       border-radius: 7px;
-      border-left: 7px solid #94da6f; }
+      border-left: 7px solid #94da6f;
+      margin-bottom: 20px; }
   .cards .bucket {
     max-width: 300px;
     width: 100%; }
