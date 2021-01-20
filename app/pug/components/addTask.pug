@@ -1,8 +1,8 @@
 .addTask
   h2 Новая задача
-  .addTask__block
-    input(type="text" placeholder = "Название задачи" id = "taskName" ) 
-    button(id = "createButton") 
+  form(class = "addTask__block")
+    input(type="text" placeholder = "Название задачи" id = "taskName" autocomplete="off") 
+    button(type = "button" id = "createButton") 
       img(src="assets/img/plus.png", alt="plus")
       span Добавить
       
