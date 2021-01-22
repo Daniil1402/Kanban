@@ -18,7 +18,6 @@
   if (localStorage.getItem("task") !== null) {
     tasks = JSON.parse(localStorage.getItem("task"));
     renderTasks();
-    console.log(tasks);
   } else {
     console.log("no");
   }
