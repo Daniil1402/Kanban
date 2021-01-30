@@ -3,19 +3,59 @@
   const TASK_WIDTH = 270;
 
   const cardsBlock = document.querySelector(".cards");
-  const taskItem = cardsBlock.querySelectorAll(".tasks__item");
+  const inProgress = cardsBlock.querySelector(".inProgress");
+  //const taskItem = cardsBlock.querySelectorAll(".tasks__item");
+
+  let coordinatesBlocks = [];
+
+  //console.log(cardsBlock.children);
+
+  const getCoordinates = function () {
+    for (let i = 0; i < cardsBlock.children.length; i++) {
+      let rect = cardsBlock.children[i].getBoundingClientRect();
+      coordinatesBlocks.push(rect);
+      //console.log(rect);
+    }
+    //console.log(coordinatesBlocks);
+    return coordinatesBlocks;
+  };
+
+  // const sticking = function (x, element) {
+  //   getCoordinates();
+  //   for (let block of coordinatesBlocks) {
+  //     let leftLimit = block.left - TASK_WIDTH / 2;
+  //     let rightLimit = block.right + TASK_WIDTH / 2;
+  //     if (x >= leftLimit && x <= rightLimit) {
+  //       inProgress.appendChild(element);
+  //     }
+  //   }
+  // };
+
+  const sticking = function (x, element) {
+    getCoordinates();
+
+    for (let i = 0; i < coordinatesBlocks.length; i++) {
+      let leftLimit = coordinatesBlocks[i].left - TASK_WIDTH / 2;
+      let rightLimit = coordinatesBlocks[i].right + TASK_WIDTH / 2;
+      if (x >= leftLimit && x <= rightLimit) {
+        //let el = cardsBlock.children[i];
+        cardsBlock.children[i].appendChild(element);
+        break;
+      }
+    }
+  };
 
   cardsBlock.addEventListener("mousedown", function (evt) {
-    console.log(evt.clientX);
-    if (evt.buttons === 1 && evt.target.className === "tasks__item") {
+    if (evt.buttons === 1 && evt.target.classList.contains("tasks__item")) {
       evt.preventDefault();
 
       evt.target.style.position = "absolute";
       evt.target.style.zIndex = 1000;
+      evt.target.style.transform = "rotate(3deg)";
 
-      // let stub = document.createElement("div");
-      // stub.style.width = TASK_WIDTH + "px";
-      // stub.style.height = TASK_HEIGHT + "px";
+      const backBlock = document.createElement("div");
+      backBlock.classList.add("stub");
+      evt.target.after(backBlock);
 
       let startCoords = {
         x: evt.clientX,
@@ -29,6 +69,13 @@
 
       const onMouseMove = function (moveEvt) {
         moveEvt.preventDefault();
+
+        //console.log(moveEvt.clientX);
+
+        // if (moveEvt.clientX >= 580 && moveEvt.clientX <= 850) {
+        //   inProgress.appendChild(evt.target);
+        // }
+        //console.log(moveEvt.clientX);
 
         dragged = true;
 
@@ -57,6 +104,16 @@
         document.removeEventListener(`mouseup`, onMouseUp);
 
         if (dragged) {
+          const stub = document.querySelector(".stub");
+          stub.remove();
+          sticking(upEvt.clientX, evt.target);
+          window.main.changeColor(evt.target);
+          window.main.changeStatus(evt.target);
+
+          evt.target.style.zIndex = 0;
+          evt.target.style.position = "static";
+          evt.target.style.transform = "none";
+
           const onClickPreventDefault = function (clickEvt) {
             clickEvt.preventDefault();
             evt.target.removeEventListener(`click`, onClickPreventDefault);

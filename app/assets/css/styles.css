@@ -4162,6 +4162,18 @@
 .text-right {
   text-align: right; }
 
+.borderLeft__gray {
+  border-left: 7px solid #a7a7a7; }
+
+.borderLeft__blue {
+  border-left: 7px solid #86B6DA; }
+
+.borderLeft__green {
+  border-left: 7px solid #94da6f; }
+
+.borderLeft__red {
+  border-left: 7px solid #ec8b8b; }
+
 *, *::before, *::after {
   margin: 0;
   padding: 0;
@@ -4257,15 +4269,6 @@ body {
   .cards .tasks {
     max-width: 300px;
     width: 100%; }
-    .cards .tasks .tasks__item {
-      background: #ffffff;
-      display: inline-block;
-      max-width: 270px;
-      width: 100%;
-      padding: 10px 20px;
-      border-radius: 7px;
-      border-left: 7px solid #a7a7a7;
-      margin-bottom: 20px; }
   .cards .inProgress {
     max-width: 300px;
     width: 100%; }
@@ -4315,3 +4318,21 @@ body {
       .cards .bucket button:hover {
         box-shadow: 0px 0px 8px 3px rgba(206, 102, 102, 0.418);
         transition: .3s; }
+
+.stub {
+  height: 40px;
+  width: 270px;
+  background: gray;
+  opacity: 0.1;
+  border-radius: 7px;
+  margin-bottom: 20px; }
+
+.tasks__item {
+  background: #ffffff;
+  display: inline-block;
+  max-width: 270px;
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 7px;
+  margin-bottom: 20px;
+  cursor: all-scroll; }

@@ -7,7 +7,6 @@
   const taskName = addTask.querySelector("#taskName");
 
   taskName.addEventListener("input", function () {
-    console.log(taskName.value.length);
     if (taskName.value.length < TASK_TITLE_MIN_LENGTH) {
       taskName.setCustomValidity(`Название задачи должно быть больше ${TASK_TITLE_MIN_LENGTH} символов. Сейчас количество символов ${taskName.value.length}.`);
       createButton.disabled = true;
