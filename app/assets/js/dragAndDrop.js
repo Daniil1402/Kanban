@@ -14,7 +14,7 @@
     for (let i = 0; i < cardsBlock.children.length; i++) {
       let rect = cardsBlock.children[i].getBoundingClientRect();
       coordinatesBlocks.push(rect);
-      //console.log(rect);
+      console.log(rect);
     }
     //console.log(coordinatesBlocks);
     return coordinatesBlocks;

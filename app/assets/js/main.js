@@ -96,11 +96,23 @@
       }
     }
     saveInfo();
-    console.log(tasks);
+    //console.log(tasks);
+  };
+
+  const deleteObj = function (task) {
+    let taskId = task.getAttribute("data-id");
+    for (let item of tasks) {
+      if (item.id == taskId) {
+        let elNumber = tasks.indexOf(item);
+        tasks.splice(elNumber, 1);
+      }
+    }
+    saveInfo();
   };
 
   window.main = {
     changeColor,
     changeStatus,
+    deleteObj,
   };
 })();
