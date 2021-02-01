@@ -1,4 +1,6 @@
 (function () {
+  const KEY_ENTER = "Enter";
+
   const cards = document.querySelector(".cards");
   const addTask = document.querySelector(".addTask");
   const createButton = addTask.querySelector("#createButton");
@@ -69,8 +71,16 @@
     }
   };
 
-  createButton.addEventListener("click", function () {
-    createNewTask();
+  createButton.addEventListener("mousedown", function (evt) {
+    if (evt.buttons === 1) {
+      createNewTask();
+    }
+  });
+
+  taskName.addEventListener("keydown", function (evt) {
+    if (evt.key === KEY_ENTER) {
+      createNewTask();
+    }
   });
 
   const changeColor = function (task) {
@@ -96,7 +106,6 @@
       }
     }
     saveInfo();
-    //console.log(tasks);
   };
 
   const deleteObj = function (task) {
