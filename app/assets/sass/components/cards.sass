@@ -81,34 +81,49 @@
   border-radius: 7px
   margin-bottom: 20px
 
+// .tasks__item
+//   background: #ffffff
+//   display: inline-block
+//   max-width: 270px
+//   width: 100%
+//   padding: 10px 20px
+//   border-radius: 7px
+//   margin-bottom: 20px
+//   cursor: all-scroll
+//   overflow: hidden
+
 .tasks__item
   background: #ffffff
-  display: inline-block
+  display: flex
+  justify-content: space-between
+  align-items: center
   max-width: 270px
   width: 100%
-  padding: 10px 20px
+  padding: 10px 10px 10px 20px
   border-radius: 7px
-  //border-left: 7px solid #a7a7a7
   margin-bottom: 20px
   cursor: all-scroll
   overflow: hidden
-  //position: relative
-  // transition: .3s
-  // &:hover
-  //   transition: .3s
-  //   &:after
-  //     content: url("../img/edit.png")
-  //     position: absolute
-  //     right: 10px
-  //     top: 12px
-  //     width: 16px
-  //     height: 16px
-  //     cursor: pointer
+  &:hover
+    .task__edit
+      opacity: 1
+  .task__title
+    display: block
+    width: 100%
+  .task__edit
+    // width: 16px
+    // height: 16px
+    cursor: pointer
+    opacity: 0
+    transition: .3s
+    img
+      width: 100%
+      display: block
+    &:hover
+      filter: brightness(60%)
+      transition: .3s
 
-      //background-image: url('https://i.imgur.com/MJekAr4.gif')
-
-      //background-size: 16px 16px
-      //box-shadow: 1px 1px 5px #000
+  
 
 
         

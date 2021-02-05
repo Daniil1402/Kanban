@@ -1,6 +1,8 @@
 (function () {
   const KEY_ENTER = "Enter";
 
+  const taskTemplate = document.querySelector("#task").content.querySelector(".tasks__item");
+
   const cards = document.querySelector(".cards");
   const addTask = document.querySelector(".addTask");
   const createButton = addTask.querySelector("#createButton");
@@ -12,12 +14,28 @@
 
   let tasks = [];
 
+  // const createTask = function (taskItem) {
+  //   const task = document.createElement("div");
+  //   task.setAttribute("data-id", taskItem.id);
+  //   task.classList.add("tasks__item");
+  //   task.classList.add("borderLeft__gray");
+  //   task.textContent = `${taskItem.title}`;
+  //   return task;
+  // };
+
+  const createTask = function (taskItem) {
+    const task = taskTemplate.cloneNode(true);
+    const taskTitle = task.querySelector(".task__title");
+    task.setAttribute("data-id", taskItem.id);
+    task.classList.add("borderLeft__gray");
+    taskTitle.textContent = `${taskItem.title}`;
+    return task;
+  };
+
   const renderTasks = function () {
     for (let item of tasks) {
-      const task = document.createElement("div");
-      task.classList.add("tasks__item");
-      task.setAttribute("data-id", item.id);
-      task.textContent = `${item.title}`;
+      let task = createTask(item);
+      task.className = "tasks__item";
       if (item.status === "tasks") {
         task.classList.add("borderLeft__gray");
         newTask.appendChild(task);
@@ -59,12 +77,7 @@
   const createNewTask = function () {
     if (taskName.value) {
       let taskItem = createObj(taskName.value);
-      const task = document.createElement("div");
-      task.setAttribute("data-id", taskItem.id);
-      task.classList.add("tasks__item");
-      task.classList.add("borderLeft__gray");
-      task.textContent = `${taskItem.title}`;
-      newTask.appendChild(task);
+      newTask.appendChild(createTask(taskItem));
       taskName.value = "";
     } else {
       alert("Требуется ввести название задачи!");

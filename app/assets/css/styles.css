@@ -4332,11 +4332,28 @@ body {
 
 .tasks__item {
   background: #ffffff;
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   max-width: 270px;
   width: 100%;
-  padding: 10px 20px;
+  padding: 10px 10px 10px 20px;
   border-radius: 7px;
   margin-bottom: 20px;
   cursor: all-scroll;
   overflow: hidden; }
+  .tasks__item:hover .task__edit {
+    opacity: 1; }
+  .tasks__item .task__title {
+    display: block;
+    width: 100%; }
+  .tasks__item .task__edit {
+    cursor: pointer;
+    opacity: 0;
+    transition: .3s; }
+    .tasks__item .task__edit img {
+      width: 100%;
+      display: block; }
+    .tasks__item .task__edit:hover {
+      filter: brightness(60%);
+      transition: .3s; }

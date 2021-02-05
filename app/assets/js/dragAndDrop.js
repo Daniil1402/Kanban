@@ -32,7 +32,8 @@
   };
 
   cardsBlock.addEventListener("mousedown", function (evt) {
-    if (evt.buttons === 1 && evt.target.classList.contains("tasks__item")) {
+    let taskPointer = evt.target.closest(".tasks__item");
+    if (evt.buttons === 1 && evt.target.classList.contains("tasks__item") && taskPointer) {
       evt.preventDefault();
 
       // evt.target.style.position = "absolute";
