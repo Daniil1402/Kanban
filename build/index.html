@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/styles.css"/>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1>СПИСОК ЗАДАЧ</h1>
+      </div>
+    </header>
+    <div class="container">
+      <div class="addTask">
+        <h2>Новая задача</h2>
+        <form class="addTask__block">
+          <input type="text" placeholder="Название задачи" id="taskName" autocomplete="off"/>
+          <button type="button" id="createButton"> <img src="assets/img/plus.png" alt="plus"/><span>Добавить</span></button>
+        </form>
+      </div>
+      <div class="cards">
+        <div class="tasks">
+          <div class="cards__title background-lgray color-gray">Задачи</div>
+        </div>
+        <div class="inProgress">
+          <div class="cards__title background-lblue color-lblue">В процессе</div>
+        </div>
+        <div class="done">
+          <div class="cards__title background-lgreen color-lgreen">Готово</div>
+        </div>
+        <div class="bucket">
+          <div class="cards__title background-lred color-red">Корзина</div>
+          <button id="clearBucket">Очистить корзину</button>
+        </div>
+      </div>
+    </div>
+    <template id="task">
+      <div class="tasks__item"><span class="task__title"></span>
+        <div class="task__edit"><img src="assets/img/edit.png" alt="edit"/></div>
+      </div>
+    </template>
+    <!--include components/main/footer-->
+  </body>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/deleteBucket.js"></script>
+  <script src="assets/js/validation.js"></script>
+  <script src="assets/js/dragAndDrop.js"></script>
+  <script src="assets/js/editTitle.js"></script>
+</html>

@@ -1,13 +1,19 @@
 {
-  "name": "gulp-template",
+  "name": "kanban",
   "version": "1.0.0",
-  "description": "My gulp template",
-  "main": "index.js",
+  "description": "My project",
+  "main": "app.js",
   "keywords": [
     "pug",
     "gulp",
     "sass"
   ],
+  "scripts": {
+    "serve": "gulp",
+    "build": "gulp build",
+    "clear": "rm -rf build",
+    "start": "node app.js"
+  },
   "author": "Daniil",
   "license": "ISC",
   "devDependencies": {
@@ -15,10 +21,11 @@
     "gulp": "^4.0.2",
     "gulp-concat": "^2.6.1",
     "gulp-pug": "^4.0.1",
-    "gulp-sass": "^4.1.0",
-    "jquery": "^3.5.1"
+    "gulp-sass": "^4.1.0"
   },
   "dependencies": {
+    "express": "^4.17.1",
+    "jquery": "^3.5.1",
     "owl.carousel": "^2.3.4"
   }
 }
