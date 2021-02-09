@@ -132,9 +132,22 @@
     saveInfo();
   };
 
+  const changeTitle = function (task, title) {
+    let taskId = task.getAttribute("data-id");
+    console.log(task);
+    for (let item of tasks) {
+      if (item.id == taskId) {
+        item.title = title.textContent;
+        console.log(item.title);
+      }
+    }
+    saveInfo();
+  };
+
   window.main = {
     changeColor,
     changeStatus,
     deleteObj,
+    changeTitle,
   };
 })();

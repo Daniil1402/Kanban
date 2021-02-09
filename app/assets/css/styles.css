@@ -4347,6 +4347,11 @@ body {
   .tasks__item .task__title {
     display: block;
     width: 100%; }
+    .tasks__item .task__title:focus {
+      border: 1px solid #b3b3b3;
+      border-radius: 5px;
+      box-shadow: none;
+      outline: none; }
   .tasks__item .task__edit {
     cursor: pointer;
     opacity: 0;
