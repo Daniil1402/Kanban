@@ -2,7 +2,7 @@ const gulp = require("gulp");
 const pug = require("gulp-pug");
 const sass = require("gulp-sass");
 const browserSync = require("browser-sync");
-const concat = require("gulp-concat");
+// const concat = require("gulp-concat");
 
 gulp.task("pug", () => {
   return gulp
@@ -57,6 +57,14 @@ gulp.task("watch", function () {
   gulp.watch("app/assets/sass/**/*.sass", gulp.parallel("styles"));
   gulp.watch("app/assets/js/main/**/*.js", gulp.parallel("scripts"));
   gulp.watch("app/pug/**/*.pug", gulp.parallel("pug"));
+});
+
+gulp.task("build", async function () {
+  gulp.src("app/assets/css/*.css").pipe(sass({ outputStyle: "compressed" })).pipe(gulp.dest("build/assets/css"));
+  gulp.src("app/assets/js/**/*.js").pipe(gulp.dest("build/assets/js"));
+  gulp.src("app/assets/img/**/*.*").pipe(gulp.dest("build/assets/img/"));
+  gulp.src("app/assets/fonts/**/*.*").pipe(gulp.dest("build/assets/fonts/"));
+  gulp.src("app/*.html").pipe(gulp.dest("build/"));
 });
 
 gulp.task("default", gulp.parallel("styles", "scripts", "pug", "watch", "browser-sync"));
