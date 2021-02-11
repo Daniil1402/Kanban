@@ -28,7 +28,7 @@
     const taskTitle = task.querySelector(".task__title");
     task.setAttribute("data-id", taskItem.id);
     task.classList.add("borderLeft__gray");
-    taskTitle.textContent = `${taskItem.title}`;
+    taskTitle.value = `${taskItem.title}`;
     return task;
   };
 
@@ -134,11 +134,9 @@
 
   const changeTitle = function (task, title) {
     let taskId = task.getAttribute("data-id");
-    console.log(task);
     for (let item of tasks) {
       if (item.id == taskId) {
-        item.title = title.textContent;
-        console.log(item.title);
+        item.title = title.value;
       }
     }
     saveInfo();

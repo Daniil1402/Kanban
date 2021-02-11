@@ -1,18 +1,12 @@
 (function () {
   const cards = document.querySelector(".cards");
 
-  // const onBlur = function (evt) {
-  //   evt.target.contentEditable = false;
-  //   window.main.changeTitle(task, field);
-  //   //console.log("1111");
-  // };
-
   const editTaskTitle = function (task) {
     const field = task.querySelector(".task__title");
 
     const onBlur = function (evt) {
       evt.target.contentEditable = false;
-      field.style = "cursor: all-scroll;";
+      field.style = "cursor: grub;";
       window.main.changeTitle(task, field);
     };
 
@@ -24,7 +18,6 @@
       field.addEventListener("blur", onBlur);
       edited = true;
     } else {
-      console.log("1111");
       field.removeEventListener("blur", onBlur);
     }
   };
