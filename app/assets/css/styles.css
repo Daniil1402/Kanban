@@ -4385,3 +4385,11 @@ body {
     .tasks__item .task__edit:hover {
       filter: brightness(60%);
       transition: .3s; }
+
+.task__popup {
+  width: 600px;
+  height: 600px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); }
